@@ -1,0 +1,27 @@
+# Local virtual environments
+.venv/
+.venv_demo/
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Local datasets / model artifacts
+data/
+checkpoints/
+samples/
+outputs/
+runs/
+
+# Project demo generated artifacts
+project_demo/checkpoints/
+project_demo/sample.png
+project_demo/__pycache__/
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
