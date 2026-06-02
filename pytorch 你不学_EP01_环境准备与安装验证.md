@@ -148,9 +148,9 @@ PyTorch-教程/
 ├── runs/                  # 训练过程输出
 ├── checkpoints/           # 模型权重和断点
 ├── project_demo/          # 仓库里的 demo
-├── PyTorch 系列教程_EP01_环境准备与安装验证.md
+├── pytorch 你不学_EP01_环境准备与安装验证.md
 ├── ...
-└── PyTorch 系列教程_README.md
+└── pytorch 你不学_README.md
 ```
 
 下面这段命令可以先把常用目录建出来：
