@@ -1,10 +1,27 @@
 # EP04｜用 nn.Module 搭建第一个网络
 
-![PyTorch 系列教程](https://pytorch.org/assets/images/pytorch-logo.png)
 
-作者：吴佳浩
+<p align="center">
+ <img src="https://pytorch.org/assets/images/pytorch-logo.png" width="400" alt="PyTorch">
+</p>
 
-撰稿时间：2026-06-03
+<h1 align="center">PyTorch 你不学</h1>
+<h2 align="center">EP04 用 nn.Module 搭建第一个网络</h2>
+<h4 align="center">吴佳浩 · 著</h4>
+<h3 align="center">15 篇 · 本地 Windows 实战 · RTX 5090 实测</h3>
+
+<p align="center">
+ <img src="https://img.shields.io/badge/PyTorch-2.12.0-EE4C2C?style=for-the-badge&logo=pytorch&logoColor=white" alt="PyTorch">
+ <img src="https://img.shields.io/badge/Python-3.10+-3776AB?style=for-the-badge&logo=python&logoColor=white" alt="Python">
+ <img src="https://img.shields.io/badge/GPU-RTX%205090-76B900?style=for-the-badge&logo=nvidia&logoColor=white" alt="NVIDIA">
+ <img src="https://img.shields.io/badge/OS-Windows%2011-0078D6?style=for-the-badge&logo=windows&logoColor=white" alt="Windows">
+ <img src="https://img.shields.io/badge/Chapters-15-FF6B35?style=for-the-badge&logo=bookstack&logoColor=white" alt="15 Chapters">
+</p>
+
+<p align="center">
+  <b>[Thu 2026-06-11 02:04 GMT+8] 作者：吴佳浩 | 撰稿：2026-05-25 | 实测：RTX 5090 + 96GB + Windows 11</b>
+</p>
+
 
 ## 本篇你会学到什么
 

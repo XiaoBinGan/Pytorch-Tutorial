@@ -6,7 +6,7 @@
 <h3 align="center">15 篇 · 本地 Windows 实战 · RTX 5090 实测</h3>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/PyTorch-2.x-EE4C2C?style=for-the-badge&logo=pytorch&logoColor=white" alt="PyTorch">
+  <img src="https://img.shields.io/badge/PyTorch-2.12.0-EE4C2C?style=for-the-badge&logo=pytorch&logoColor=white" alt="PyTorch">
   <img src="https://img.shields.io/badge/Python-3.10+-3776AB?style=for-the-badge&logo=python&logoColor=white" alt="Python">
   <img src="https://img.shields.io/badge/GPU-RTX%205090-76B900?style=for-the-badge&logo=nvidia&logoColor=white" alt="NVIDIA">
   <img src="https://img.shields.io/badge/OS-Windows%2011-0078D6?style=for-the-badge&logo=windows&logoColor=white" alt="Windows">
@@ -289,7 +289,7 @@ flowchart TD
 
 ```powershell
 # 1. 进入工作目录
-cd G:\openclaw\docs\PyTorch-教程
+cd G:\PyTorch-教程
 
 # 2. 创建虚拟环境
 python -m venv .venv

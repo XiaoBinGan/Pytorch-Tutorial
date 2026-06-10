@@ -1,10 +1,27 @@
 # EP01｜环境准备与安装验证
 
-![PyTorch 系列教程](https://pytorch.org/assets/images/pytorch-logo.png)
 
-作者：吴佳浩
+<p align="center">
+ <img src="https://pytorch.org/assets/images/pytorch-logo.png" width="400" alt="PyTorch">
+</p>
 
-撰稿时间：2026-06-03
+<h1 align="center">PyTorch 你不学</h1>
+<h2 align="center">EP01 环境准备与安装验证</h2>
+<h4 align="center">吴佳浩 · 著</h4>
+<h3 align="center">15 篇 · 本地 Windows 实战 · RTX 5090 实测</h3>
+
+<p align="center">
+ <img src="https://img.shields.io/badge/PyTorch-2.12.0-EE4C2C?style=for-the-badge&logo=pytorch&logoColor=white" alt="PyTorch">
+ <img src="https://img.shields.io/badge/Python-3.10+-3776AB?style=for-the-badge&logo=python&logoColor=white" alt="Python">
+ <img src="https://img.shields.io/badge/GPU-RTX%205090-76B900?style=for-the-badge&logo=nvidia&logoColor=white" alt="NVIDIA">
+ <img src="https://img.shields.io/badge/OS-Windows%2011-0078D6?style=for-the-badge&logo=windows&logoColor=white" alt="Windows">
+ <img src="https://img.shields.io/badge/Chapters-15-FF6B35?style=for-the-badge&logo=bookstack&logoColor=white" alt="15 Chapters">
+</p>
+
+<p align="center">
+  <b>[Thu 2026-06-11 02:04 GMT+8] 作者：吴佳浩 | 撰稿：2026-05-25 | 实测：RTX 5090 + 96GB + Windows 11</b>
+</p>
+
 
 ## 本篇你会学到什么
 
@@ -135,7 +152,7 @@ ModuleNotFoundError: No module named 'torch'
 在这一整套教程里，我们统一使用当前仓库目录：
 
 ```text
-G:\openclaw\docs\PyTorch-教程
+G:\PyTorch-教程
 ```
 
 建议保持下面这套基础结构：
@@ -156,7 +173,7 @@ PyTorch-教程/
 下面这段命令可以先把常用目录建出来：
 
 ```powershell
-cd G:\openclaw\docs\PyTorch-教程
+cd G:\PyTorch-教程
 mkdir data, outputs, runs, checkpoints
 ```
 
@@ -245,7 +262,7 @@ python -m pip --version
 ### 1. 进入项目目录
 
 ```powershell
-cd G:\openclaw\docs\PyTorch-教程
+cd G:\PyTorch-教程
 ```
 
 ### 2. 创建虚拟环境
@@ -265,7 +282,7 @@ python -m venv .venv
 激活成功后，你通常会在终端左边看到类似这样的前缀：
 
 ```powershell
-(.venv) PS G:\openclaw\docs\PyTorch-教程>
+(.venv) PS G:\PyTorch-教程>
 ```
 
 这表示你后面的 `python` 和 `pip` 已经优先指向这个虚拟环境。
@@ -423,7 +440,7 @@ y = y.to(device)
 你要确保它指向的是类似下面的路径：
 
 ```text
-G:\openclaw\docs\PyTorch-教程\.venv\Scripts\python.exe
+G:\PyTorch-教程\.venv\Scripts\python.exe
 ```
 
 ### 2. 终端是否激活了同一个环境
@@ -539,8 +556,51 @@ python -m pip --version
 
 把这三条命令的输出各自代表什么，自己用一句话解释出来。
 
+<details>
+<summary>点击查看参考答案</summary>
+
+**`where python`** → 显示当前终端找到的 python.exe 的完整路径。如果显示的是 `.venv\Scripts\python.exe`，说明虚拟环境已激活；如果显示的是系统路径（比如 `C:\Users\xxx\AppData\...`），说明还没进虚拟环境。
+
+**`python --version`** → 打印当前 Python 解释器的版本号，比如 `Python 3.10.11`。确认版本 ≥ 3.10，否则 PyTorch 2.12.0 可能不兼容。
+
+**`python -m pip --version`** → 打印 pip 的版本号和它绑定的 Python 路径。注意路径是不是指向虚拟环境内的 pip——如果是系统的 pip，说明包的安装位置不在虚拟环境中。
+
+</details>
+
 ### 练习 2
-删除项目中的 `.venv` 后，重新创建一次虚拟环境，并重新安装 `torch`。目标是把“环境搭建”从照抄命令变成你自己能独立完成的动作。
+删除项目中的 `.venv` 后，重新创建一次虚拟环境，并重新安装 `torch`。目标是把"环境搭建"从照抄命令变成你自己能独立完成的动作。
+
+<details>
+<summary>点击查看参考答案</summary>
+
+完整操作步骤：
+
+```powershell
+# 1. 确认当前不在 .venv 内（提示符前面没有 (.venv)）
+deactivate
+
+# 2. 删除旧的虚拟环境
+Remove-Item -Recurse -Force .venv
+
+# 3. 重新创建
+python -m venv .venv
+
+# 4. 激活
+.\.venv\Scripts\activate
+
+# 5. 升级 pip
+python -m pip install --upgrade pip
+
+# 6. 安装 PyTorch
+pip install torch torchvision torchaudio
+
+# 7. 验证
+python -c "import torch; print(torch.__version__)"
+```
+
+如果上面的 7 步你不需要看就能独立做完，说明环境搭建已经掌握了。
+
+</details>
 
 ### 练习 3
 修改验证脚本，在输出 `torch.__version__` 之外，再打印：
@@ -552,6 +612,40 @@ python -m pip --version
 
 让自己开始熟悉 Tensor 的几个核心属性。
 
+<details>
+<summary>点击查看参考答案</summary>
+
+```python
+import torch
+
+print(f"PyTorch 版本: {torch.__version__}")
+print(f"CUDA 可用: {torch.cuda.is_available()}")
+
+t = torch.rand(2, 3)
+print(f"\n张量内容:\n{t}")
+print(f"shape:  {t.shape}")       # → torch.Size([2, 3])
+print(f"dtype:  {t.dtype}")       # → torch.float32
+print(f"device: {t.device}")      # → cpu
+```
+
+预期输出类似：
+
+```
+PyTorch 版本: 2.12.0+cu128
+CUDA 可用: True
+
+张量内容:
+tensor([[0.1234, 0.5678, 0.9012],
+        [0.3456, 0.7890, 0.1112]])
+shape:  torch.Size([2, 3])
+dtype:  torch.float32
+device: cpu
+```
+
+> 即使有 GPU，`torch.rand` 默认创建的张量也在 `cpu` 上——`device` 需要手动指定或 `.to('cuda')` 才会切换。
+
+</details>
+
 ### 练习 4
 如果你的机器有 NVIDIA 显卡，尝试查清楚下面 3 个信息：
 
@@ -560,6 +654,42 @@ python -m pip --version
 - 你当前安装的 PyTorch 是 CPU 版还是 CUDA 版
 
 先把事实确认清楚，不要凭感觉判断。
+
+<details>
+<summary>点击查看参考答案</summary>
+
+**查显卡型号：**
+
+在 PowerShell 中执行：
+
+```powershell
+nvidia-smi --query-gpu=name --format=csv,noheader
+```
+
+输出示例：`NVIDIA GeForce RTX 5090`
+
+**查驱动是否正常：**
+
+```powershell
+nvidia-smi
+```
+
+如果能看到 GPU 信息表格（温度、显存使用、驱动版本等），驱动正常。如果提示 `nvidia-smi 不是可执行命令` 或 `No devices were found`，说明驱动没装或版本不对。
+
+**查 PyTorch 是 CPU 版还是 CUDA 版：**
+
+```python
+import torch
+print(torch.cuda.is_available())    # True → CUDA 版（能调用 GPU）
+print(torch.version.cuda)           # 显示编译时对的 CUDA 版本，如 "12.8"
+print(torch.__version__)            # 版本号里有 "+cu128" 说明是 CUDA 版
+                                    # 版本号是 "+cpu" 说明是 CPU 版
+```
+
+> 如果 `torch.cuda.is_available()` 返回 `False`，去 https://pytorch.org/get-started/locally/ 找到对应 CUDA 版本的安装命令重新装。
+
+</details>
+
 
 ---
 
